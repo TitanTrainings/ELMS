@@ -1,0 +1,49 @@
+@if(isAuthenticated){
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        @if(show){
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item" [ngClass]="{'showitem':show, 'hideitem':!show}">
+                <a routerLink="leave-history" routerLinkActive="active" class="nav-link">Leave History</a>
+            </li>
+            <li class="nav-item" [ngClass]="{'showitem':show, 'hideitem':!show}">
+                <a routerLink="leave-apply" routerLinkActive="active" class="nav-link">Apply Leave</a>
+            </li>
+            <li class="nav-item" [ngClass]="{'showitem':show, 'hideitem':!show}">
+                <a routerLink="leave-balance" routerLinkActive="active" class="nav-link">Leave Balance</a>
+            </li>            
+            <h3 class="text-center" style="color:navy;; margin-left:80px;"> {{title}} </h3>
+        </ul>
+        }
+        @else{
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a routerLink="leave-approval" routerLinkActive="active" class="nav-link">Approve Leaves</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="leave-history" routerLinkActive="active" class="nav-link">Leave History</a>
+            </li>
+            <h3 class="text-center" style="color:navy; margin-left:150px;"> {{title}} </h3>
+        </ul>
+        }
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 10px;">
+            <li>
+                <button class="btn btn-secondary">Logout</button>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- <h1 class="text-center" style="color:darkgrey;"> {{title}} </h1> -->
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <span>This is the POC for IBM Training.</span>
+        </div>
+    </footer>
+}
+@else if(!isAuthenticated){
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+}

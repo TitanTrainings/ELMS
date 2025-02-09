@@ -1,0 +1,13 @@
+<div class="login-card">
+    <div class="card-title">
+        <h1>Login</h1>
+        <span>You don't have an account? <a routerLink="/signup">Sign up</a></span>
+    </div>
+    <form class="form-group" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input name="username" type="text" required="Username is required" formControlName="username" placeholder="Username">        
+        <p *ngIf="!formvalid">Please enter username.</p>
+        <input type="password" required="Password is required." formControlName="password" placeholder="Password">        
+        <p *ngIf="!formvalid">Please enter password.</p>
+        <button type="submit" class="enablebutton">Submit</button>
+    </form>    
+</div>
